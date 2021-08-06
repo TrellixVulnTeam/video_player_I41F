@@ -192,38 +192,45 @@ class MyApp(App):
 
         # pra fazer o random ir e voltar, criar array antes de exexutar com 300 videos e percorree aw funcoes nele
         layout = AnchorLayout(anchor_x='center',anchor_y='bottom')
-        layout_video = AnchorLayout(anchor_x='center',anchor_y='top')
+        layout_video = AnchorLayout(anchor_x='center',anchor_y='center')
+        layout_label = ScatterLayout()
         layout_left = AnchorLayout(anchor_x='left',anchor_y='bottom')
         layout_right = AnchorLayout(anchor_x='right',anchor_y='bottom')
         layout.add_widget(layout_video)
         layout.add_widget(layout_left)
         layout.add_widget(layout_right)
+        layout.add_widget(layout_label)
 
-        btn_prev = Button(text="prev", size_hint=(.15, .15))
+        btn_prev = Button(text="prev", size_hint=(.35, .10))
         btn_prev.pos = (0, 10)
         btn_prev.bind(state=prev_video)
 
-        btn_next = Button(text="next", size_hint=(.15, .15))
+        btn_next = Button(text="next", size_hint=(.35, .10))
         btn_next.pos = ((Window.width - (btn_next.width * 1.2)), 10)
         btn_next.bind(state=next_video)
 
-        btn_random = ToggleButton(text="RN", size_hint=(None, None), width=40, height=25)
+        btn_random = ToggleButton(text="RN", size_hint=(None, None), width=130, height=35)
         btn_random.pos = ((Window.width / 2) - btn_random.width, 10)
         btn_random.bind(state=turn_random)
 
-        btn_delete = Button(text="Del", size_hint=(None, None), width=40, height=25)
+        btn_delete = Button(text="Del", size_hint=(None, None), width=130, height=35)
         btn_delete.pos = ((Window.width / 2) + btn_delete.width, 10)
         btn_delete.bind(state=delete_file)
 
         self.video_player.pos = (0, 100)
-        self.label_title.pos = (0, 270)
+        self.label_title.size_hint = (None,None)
+        self.label_title.pos_hint = {'top': 0.9}
+        self.label_title.pos = (0,0)
+        self.label_title.width = Window.width
+        self.label_title.height = 200
 
         layout_video.add_widget(self.video_player)
         layout_right.add_widget(btn_next)
         layout_left.add_widget(btn_prev)
         layout_left.add_widget(btn_random)
         layout_right.add_widget(btn_delete)
-        layout.add_widget(self.label_title)
+        layout_label.add_widget(self.label_title)
+
         return layout
 
 
