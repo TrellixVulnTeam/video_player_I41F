@@ -52,12 +52,12 @@ class MyApp(App):
 
     def __init__(self):
         super().__init__()
-        self.videos = [f'\\\desktop-vsfup0f/Webcam/{video}' for video in os.listdir('\\\desktop-vsfup0f/Webcam/') if
-                       not os.path.isdir(f'\\\desktop-vsfup0f/Webcam/{video}')] + \
-                      [f'\\\desktop-vsfup0f/webcam2/{video2}' for video2 in os.listdir('\\\desktop-vsfup0f/webcam2/') if
-                       not os.path.isdir(f'\\\desktop-vsfup0f/webcam2/{video2}')] + \
-                      [f'\\\desktop-vsfup0f/Webcam3/{video3}' for video3 in os.listdir('\\\desktop-vsfup0f/Webcam3/') if
-                       not os.path.isdir(f'\\\desktop-vsfup0f/Webcam3/{video3}')]
+        self.videos = [f'\\\desktop-vsfup0f/pasta1/{video}' for video in os.listdir('\\\desktop-vsfup0f/pasta1/') if
+                       not os.path.isdir(f'\\\desktop-vsfup0f/pasta1/{video}')] + \
+                      [f'\\\desktop-vsfup0f/pasta2/{video2}' for video2 in os.listdir('\\\desktop-vsfup0f/pasta2/') if
+                       not os.path.isdir(f'\\\desktop-vsfup0f/pasta2/{video2}')] + \
+                      [f'\\\desktop-vsfup0f/pasta3/{video3}' for video3 in os.listdir('\\\desktop-vsfup0f/pasta3/') if
+                       not os.path.isdir(f'\\\desktop-vsfup0f/pasta3/{video3}')]
         self.videos.sort()
         self.title = "Video Player"
         self.video_player = VideoPlayer(size_hint=(1, .75))
@@ -190,7 +190,7 @@ class MyApp(App):
                 else:
                     print("The file does not exist")
 
-        # pra fazer o random ir e voltar, criar array antes de exexutar com 300 videos e percorree aw funcoes nele
+        # pra fazer o random ir e voltar, criar array antes de executar com 300 videos e percorre as funcoes nele
         layout = AnchorLayout(anchor_x='center',anchor_y='bottom')
         layout_video = AnchorLayout(anchor_x='center',anchor_y='center')
         layout_label = ScatterLayout()
